@@ -1,175 +1,39 @@
-* {
+*{
   margin: 0;
   box-sizing: border-box;
 }
-h1 {
-  font-size: 1.6rem;
-  padding: 1rem;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: white;
-}
-a {
-  text-decoration: none;
-  color: white;
-
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-.fa-bars {
-  font-size: 1.8rem;
-  color: white;
-  cursor: pointer;
-}
-.under{
-  display: flex;
-}
-.nav {
-  width: 100%;
-  position: fixed;
-  left: 0;
-  top: 0;
-  background: rgb(10, 10, 64);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-.sideBar {
-  width: 200px;
-  position: fixed;
-  padding: 1rem;
-  margin-top: 2rem;
-  background-color: rgb(10, 10, 64);
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(-200%);
-}
-.sideBar.open {
-  transform: translateX(-10%);
-}
-.fa-bars:hover {
-  color: rgb(212, 132, 145);
-}
-.fa-xmark {
-  position: absolute;
-  right: 8px;
-  top: 4px;
-  font-size: 1.5rem;
-  color: white;
-  cursor: pointer;
-}
-ul {
-  margin-right: 2.1rem;
-  letter-spacing: 2px;
-  font-weight: 600;
-}
-li {
-  list-style-type: none;
-  padding: 1rem;
-}
-h3 {
-  letter-spacing: 2px;
-  color: white;
-  font-size: 15px;
-  text-align: center;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-}
-
-
-.pagesText {
-  display: flex;
-  justify-content: center;
-}
-
-.page {
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: height 1s ease;
-}
-
-.page.p-show {
-  height: auto;
-}
-
-.fa-square-caret-left {
-  padding: 5px;
-  color: antiquewhite;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.fa-square-caret-left.s-show {
-  transform: rotate(-90deg);
-}
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  scroll-behavior: smooth; /* For smooth scrolling in browsers */
-}
-
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  z-index: 1000;
-}
-
-.nav-link {
-  margin: 0 15px;
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.nav-link:hover {
-  color: #00bcd4;
-}
-
-.section {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
-}
-
-.home-section {
-  background-color: #f44336;
-}
-
-.about-section {
-  background-color: #3f51b5;
-}
-
-.contact-section {
-  background-color: #4caf50;
-}
-.first,.second,.third{
-  width: 80%;
-  height: 300px;
-  margin: auto;
-}
-.first{
-  background: rgb(55, 45, 32);
-}
-.second{
+.nav{
   background: tan;
+  width: 100%;
+  padding: 5px;
+  height: 70vh;
 }
-.third{
-  background: rgb(225, 131, 9);
+.Color{
+  background: yellowgreen
+  ;
 }
-html {
-  scroll-margin: 1rem;
-  scroll-behavior: smooth;
+h1{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: capitalize;
+  font-size: 2.5rem;
 }
+.btn{
+  width: 180px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 8px ;
+  color: antiquewhite;
+  background: rgb(131, 110, 107);
+  border: none;
+border-radius: 5px;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+letter-spacing: 2px;
+}
+
+
+
+
+
+
+
 
