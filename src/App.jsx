@@ -1,13 +1,15 @@
 
 import "./App.css";
-import { CheckBox } from "./reactTesting/01.checkbox";
+// import { CheckBox } from "./reactTesting/01.checkbox";
+import { DataAPI } from "./reactTesting/02.formDataApi";
 
 // const url = "https://dummyjson.com/users";
 
 function App() {
   return (
       <>
-    <CheckBox/>
+      <DataAPI/>
+    {/* <CheckBox/> */}
     </>
   )
   // const [users, setUsers] = useState([]);
