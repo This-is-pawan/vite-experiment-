@@ -1,79 +1,48 @@
+// import React from 'react';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import api from './reactTesting/04.axios';
+import Form from './reactTesting/Form';
 
-import "./App.css";
-// import { CheckBox } from "./reactTesting/01.checkbox";
-import { DataAPI } from "./reactTesting/02.formDataApi";
+const App = () => {
+  const queryClient = useQueryClient();
 
-// const url = "https://dummyjson.com/users";
+  // Fetch posts
+  const { data: posts, isLoading, error } = useQuery({
+    queryKey: ['posts'],
+    queryFn: () => api.get('/posts').then((res) => res.data),
+  });
 
-function App() {
+  const mutation = useMutation({
+    mutationFn: (newPost) => api.post('/posts', newPost),
+    onSuccess: () => {
+      queryClient.invalidateQueries(['posts']); // Refresh posts
+    },
+  });
+
+  const handleFormSubmit = (formData) => {
+    mutation.mutate(formData);
+  };
+
+  if (isLoading) return <div><h1>Loading...</h1></div>;
+  if (error) return <div>Error: {error.message}</div>;
+
   return (
-      <>
-      <DataAPI/>
-    {/* <CheckBox/> */}
-    </>
-  )
-  // const [users, setUsers] = useState([]);
-  // const [searchTerm, setSearchTerm] = useState("");
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch(url);
-  //       const data = await response.json();
-  //       setUsers(data.users);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
-
-  // const handleSearch = (e) => {
-  //   setSearchTerm(e.target.value.toLowerCase());
-  // };
-
-  // const filteredUsers = users.filter(
-  //   (user) =>
-  //     user.firstName.toLowerCase().includes(searchTerm) ||
-  //     user.lastName.toLowerCase().includes(searchTerm)
-     
-  // );
-
-  // return (
-  //   <>
-  //     <section className="inputAlign">
-  //       <input
-  //         type="text"
-  //         className="input"
-  //         id="input"
-  //         onChange={handleSearch}
-  //         placeholder="Search user details by Name"
-  //       />
-  //       <i className="fas fa-search"></i>
-  //     </section>
-  //     <section className="main">
-  //       {filteredUsers.length > 0 ? (
-  //         filteredUsers.map((user) => (
-  //           <div key={user.id} className="box">
-  //             <h3>
-  //               {user.firstName} {user.lastName}
-  //             </h3>
-  //             <img src={user.image} alt={`${user.firstName}'s profile`} />
-  //             <p>Email: {user.email}</p>
-  //             <p>Age: {user.age}</p>
-  //             <span>City: {user.address.city}</span>
-  //           </div>
-  //         ))
-  //       ) : (
-  //        <section>
-  //           <article className="no-results">
-  //         <p>Sorry, no users match your search.</p>
-  //           </article>
-  //         </section>
-  //       )}
-  //     </section>
-  //   </>
-  // );
-}
+    <div>
+      <h1>React Query with Form Example</h1>
+      <Form onSubmit={handleFormSubmit} />
+      {mutation.isLoading && <p>Adding post...</p>}
+      {mutation.isError && <p>Error adding post: {mutation.error.message}</p>}
+      {mutation.isSuccess && <p>Post added successfully!</p>}
+      <h2>Posts:</h2>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <strong>{post.title}</strong>: {post.body}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default App;
