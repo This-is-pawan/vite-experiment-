@@ -23,7 +23,7 @@ const App = () => {
     mutation.mutate(formData);
   };
 
-  if (isLoading) return <div><h1>Loading...</h1></div>;
+  if (isLoading) return <div><h1>Loading....</h1></div>;
   if (error) return <div>Error: {error.message}</div>;
 
   return (
