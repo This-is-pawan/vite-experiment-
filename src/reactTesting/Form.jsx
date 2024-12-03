@@ -1,9 +1,10 @@
-import React from 'react';
+import React from "react";
 
-const Form = ({ onSubmit }) => {
+// eslint-disable-next-line react/prop-types
+const Form = ({ pk }) => {
   const [formData, setFormData] = React.useState({
-    title: '',
-    body: '',
+    title: "",
+    body: "",
   });
 
   const handleChange = (e) => {
@@ -13,8 +14,9 @@ const Form = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData);
-    setFormData({ title: '', body: '' }); // Reset form fields
+    pk(formData);
+    setFormData({ title: "", body: "" });
+
   };
 
   return (
