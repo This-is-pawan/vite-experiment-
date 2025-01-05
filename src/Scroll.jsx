@@ -1,6 +1,5 @@
-// import React from "react";
-import "./App.css"; // Assuming your CSS file is named App.css
 
+import "./App.css"; 
 const Scroll = () => {
   return (
     <div>
