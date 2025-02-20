@@ -55,3 +55,57 @@ const Use = () => {
 }
 
 export default Use
+// ##############################
+// Here is the code of the react usestate
+// ##################################
+import { useState } from "react";
+import Data from "./Data";
+const UstateProject = () => {
+  // console.log(Data);
+
+  const [Add, setAdd] = useState(Data);
+
+  
+  const Adding = (id) => {
+    // console.log("there is a button of Adding");
+
+    setAdd(Add.filter((user)=>{
+     console.log(user.id!==id);
+     
+     return user.id===id
+    }));
+  };
+  let Removing = () => {
+    // console.log("there is a button of Removing");
+    setAdd([]);
+  };
+  return (
+    <div>
+      <h1>To do functionality by Use state</h1>
+      <div className="Form">
+        <input
+          type="text"
+          className="user"
+          name="user"
+          placeholder="to do app "
+        />
+       
+        {Add.map((item) => {
+          return <div className="main" key={item.id}>
+            <p className="adding">{item.color}</p>
+            <p className="removing">{item.name}</p>
+            <p className="removing">{item.price}</p>
+            <button className="btn" onClick={()=>Adding(item.id)}>
+          Add
+        </button>
+        <button className="btn" onClick={Removing}>
+          Remove
+        </button>
+          </div>;
+        })}
+      </div>
+    </div>
+  );
+};
+
+export default UstateProject;
