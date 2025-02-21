@@ -109,3 +109,29 @@ const UstateProject = () => {
 };
 
 export default UstateProject;
+// ###############################################################################
+// work of use effect  in the vite react jsx
+// $$$$$$$$$$$$$$$$$$$$$$
+// its work properly
+const Click () => {
+  const [add ,setadd]=useState(0)
+  return (
+    <>
+    settimeout((current)=>{
+      console.log(current+1)
+    })
+    </>
+  )
+}
+
+
+
+
+
+
+
+
+
+
+
+
