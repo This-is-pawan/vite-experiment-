@@ -151,6 +151,61 @@ const Click () => {
 
 // export default UseEffect
 
+// ################
+import { useEffect, useState } from "react";
+
+const API = "https://api.github.com/users";
+
+const UseEffect = () => {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+
+      try {
+        const response = await fetch(API);
+        const data = await response.json();
+        setUsers(data); 
+// console.log(data);
+
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+
+    }; 
+
+    fetchData();
+  }, []);
+
+  return (
+    <div>
+      <h2>GitHub Users</h2>
+   <div className="userparent">
+
+        {users.map((user) => (
+         
+         <div key={user.id} className="userbox">
+<div className="userchild">
+
+          <img src={user.avatar_url
+          } alt="" className="img" />
+          <h3 className="heading">{user.login}</h3>
+          <a href={user.
+html_url}>{user.
+ html_url}</a>
+          </div>
+          </div>
+          
+         ))
+        }
+        </div>
+   
+    </div>
+  );
+};
+
+export default UseEffect;
 
 
 
