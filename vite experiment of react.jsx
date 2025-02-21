@@ -128,7 +128,28 @@ const Click () => {
     </>
   )
 }
+// ###################################################################
+// useEffect why use or not 
 
+// import { useEffect } from "react"
+
+// const UseEffect = () => {
+//  let Handling=()=>{
+//   console.log('there is norml function ');
+  
+//  }
+
+// useEffect(() => {
+//  console.log('there is useEffect  ');
+// }, [])
+//   return (
+//     <div>
+//       <button className="btn" onClick={Handling}>click</button>
+//     </div>
+//   )
+// }
+
+// export default UseEffect
 
 
 
