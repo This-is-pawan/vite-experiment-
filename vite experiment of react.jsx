@@ -117,6 +117,11 @@ const Click () => {
   const [add ,setadd]=useState(0)
   return (
     <>
+{/*       let handle=()=>{
+  count=count+1
+ console.log(count);
+ 
+} */}
     settimeout((current)=>{
       console.log(current+1)
     })
