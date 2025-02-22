@@ -208,7 +208,17 @@ html_url}>{user.
 export default UseEffect;
 
 
-
+// ###############################
+// NOTE:- we can use the making external function in the useEffect()
+// like let fetching =()=> {
+// console.log('there the fetch the data')
+// }
+// useEffect(()=>{
+//   fetching()
+// }
+//  ,[]         
+// )
+  // #################
 
 
 
